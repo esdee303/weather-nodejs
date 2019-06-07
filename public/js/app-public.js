@@ -29,7 +29,6 @@ weatherForm.addEventListener('submit', (e) => {
             if(data.error) {
                 current.textContent = data.error
             } else {
-                console.log(data.low)
                 console.log(data.windSpeed)
                 console.log(getCardinalDirection(data.windBearing))
                 // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
@@ -162,6 +161,6 @@ function getCardinalDirection(windBearing) {
     } else if(windBearing === undefined) {
         cardinalDirection = ''
     }
-    return windBearing
+    return cardinalDirection
 
 }
