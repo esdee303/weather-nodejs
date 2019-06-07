@@ -15,6 +15,7 @@
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
+const time = document.querySelector('#time')
 const place = document.querySelector('#place')
 const summary = document.querySelector('#summary')
 const temperature = document.querySelector('#temperature')
@@ -33,7 +34,6 @@ weatherForm.addEventListener('submit', (e) => {
     const location = search.value
     console.log(location)
     place.textContent = 'Loading...'
-    temperature.textContent = ''
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
@@ -41,6 +41,7 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 place.textContent = data.location,
                 summary.textContent =  data.summary,
+                time.textContent = getTime(data.time),
                 temperature.textContent = data.temperature,
                 apparentTemperature.textContent = data.apparentTemperature,
                 icon.textContent.textContent = data.icon,
@@ -56,3 +57,10 @@ weatherForm.addEventListener('submit', (e) => {
         })
     })
 })
+
+function getTime(epochTime) {
+    var d = new Date(0);
+    d.setUTCSeconds(epochTime)
+    console.log(d)
+    return d
+}
