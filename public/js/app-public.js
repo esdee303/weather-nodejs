@@ -62,14 +62,14 @@ function getTime(epochTime, timezone) {
     var d = new Date(0)
     d.setUTCSeconds(epochTime)
 
-    var options = {
+   var options = {
         timeZone: timezone,
-        year: d.getFullYear(), month: d.getMonth(), day: d.getDay(),
-        hour: d.getHours(), minute: d.getMinutes(), second: d.getSeconds(),
+        year: 'numeric', month: 'numeric', day: 'numeric',
+        hour: 'numeric', minute: 'numeric', second: 'numeric',
     }
 
     formatter = new Intl.DateTimeFormat([], options)
-    return formatter.format(new Date())
+    return formatter.format(d)
     
    /* var d = new Date();
     var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
