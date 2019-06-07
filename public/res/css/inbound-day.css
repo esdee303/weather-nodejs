@@ -9,6 +9,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 @import url("https://fonts.googleapis.com/css?family=Capriola");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 
 
 [hidden] {
@@ -44,6 +45,105 @@ body {
   font-weight: 400;
   color: rgb(243, 227, 227);
 }
+
+.currentDetailsWrapper {
+  font-family: Lato,sans-serif;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+}
+
+.center {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+}
+
+#title {
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  margin: 12px 15px;
+  display: block;
+}
+
+#currently {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#title span {
+  display: inline-block;
+}
+
+.currently-icon {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+#title .currently-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+iframe, img {
+  border: none;
+}
+
+#title .currently .desc.swap {
+  font-weight: 600;
+  text-align: left;
+}
+
+#title .currently .desc,
+#title .next {
+  position: relative;
+  top: 7px;
+  line-height: 1.3em;
+  margin-bottom: 15px;
+}
+
+#title span.summary-high-low {
+  display: flex;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#title span.summary-high-low span:first-child {
+  margin-left: 0;
+}
+
+#title span.summary-high-low>span {
+  margin: 0 3px;
+}
+
+#title span.summary-high-low .high-low-label {
+  font-weight: 400;
+}
+
+#title .next .swap {
+  position: relative;
+  top: 0;
+  display: block;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+
+
+
+
+
 
 p {
   color: rgb(243, 227, 227);

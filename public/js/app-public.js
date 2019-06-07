@@ -4,7 +4,9 @@ const search = document.querySelector('input')
 const place = document.querySelector('#place')
 const current = document.querySelector('#current')
 const dailySummary =  document.querySelector('#dailySummary')
-const temperatures = document.querySelector('#temperatures')
+const feels = document.querySelector('#feels')
+const low = document.querySelector('#low')
+const high = document.querySelector('#high')
 const icon = document.querySelector('#icon')
 // const precipPobability = document.querySelector('#precipPobability')
 // const precipType = document.querySelector('#precipType')
@@ -25,10 +27,14 @@ weatherForm.addEventListener('submit', (e) => {
                 place.textContent = data.error
             } else {
                 place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
-                current.textContent =  data.temperature + '°  ' + data.currentSummary,
+                current.textContent =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
                 // time.textContent = ,
-                temperatures.textContent = 'Feels like: ' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + '°' ,
+                feels.innerHTML = '<span class="high-low-label">Feels Like:&nbsp;</span>' + data.apperentTemperature + '&deg;',
+                low.innerHTML = '<span class="high-low-label">Low:&nbsp;</span>' + data.low + '&deg;',
+                high.innerHTML = '<span class="high-low-label">High:&nbsp;</span>' + data.high + '&deg;',
+
+                // feels.textContent = 'Feels like:&nbsp;' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + data.high + '°' ,
                 icon.src = setIcon(data.icon, data.time, data.timezone),
                 //precipPobability.textContent = data.precipPobability,
                 // precipType.textContent =  data.precipType,
