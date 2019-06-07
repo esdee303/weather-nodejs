@@ -57,6 +57,7 @@ body {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   display: block;
+  color: rgb(243, 227, 227);
 }
 
 .center {

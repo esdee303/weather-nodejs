@@ -99,7 +99,8 @@ function setIcon(dataIcon, epochTime, timezone) {
         case 'clear-night':
         case 'partly-cloudy-day':
         case 'partly-cloudy-night':
-            iconImage = 'img/weather-icons/' + dataIcon + '.png'
+            // iconImage = 'img/weather-icons/' + dataIcon + '.png'
+            iconImage = 'img/weather-icons/clear-day.png'
             break
         case 'rain':
         case 'snow':
