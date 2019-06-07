@@ -66,7 +66,7 @@ app.get('/weather', (req, res) => {
                 temperature: temperature,
                 apparentTemperature: apparentTemperature,
                 icon: icon,
-                precipPobability: precipPobability,
+                precipPobability: precipProbability,
                 precipType: precipType,
                 humidity: humidity,
                 pressure: pressure,
