@@ -68,7 +68,7 @@ body {
 }
 
 #title {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 400;
   text-align: center;
   margin: 12px 15px;
@@ -103,6 +103,7 @@ iframe, img {
 #title .currently .desc.swap {
   font-weight: 600;
   text-align: left;
+  margin-left: 20px;
 }
 
 #title .currently .desc,

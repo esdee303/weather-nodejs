@@ -30,6 +30,8 @@ weatherForm.addEventListener('submit', (e) => {
                 current.textContent = data.error
             } else {
                 console.log(data.low)
+                console.log(data.windSpeed)
+                console.log(getCardinalDirection(data.windBearing))
                 // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
                 current.innerHTML =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
@@ -121,4 +123,45 @@ function setIcon(dataIcon, epochTime, timezone) {
     console.log(iconImage)
 
     return iconImage
+}
+
+function getCardinalDirection(windBearing) {
+    var cardinalDirection = ''
+    if((windBearing >= 0 && windBearing < 22.5) || windBearing === 360) {
+        cardinalDirection = 'N'
+    } else if(windBearing >= 22.5 && windBearing < 45) {
+        cardinalDirection = 'NNE'
+    } else if(windBearing >= 45 && windBearing < 67.5) {
+        cardinalDirection = 'NE'
+    } else if(windBearing >= 67.5 && windBearing < 90) {
+        cardinalDirection = 'ENE'
+    } else if(windBearing >= 90 && windBearing < 112.5) {
+        cardinalDirection = 'E'
+    } else if(windBearing >= 112.5 && windBearing < 135) {
+        cardinalDirection = 'ESE'
+    } else if(windBearing >= 135 && windBearing < 157.5) {
+        cardinalDirection = 'SE'
+    } else if(windBearing >= 157.5 && windBearing < 180) {
+        cardinalDirection = 'SSE'
+    } else if(windBearing >= 180 && windBearing < 202.5) {
+        cardinalDirection = 'S'
+    } else if(windBearing >= 202.5 && windBearing < 225) {
+        cardinalDirection = 'SSW'
+    } else if(windBearing >= 225 && windBearing < 247.5) {
+        cardinalDirection = 'SW'
+    } else if(windBearing >= 247.5 && windBearing < 270) {
+        cardinalDirection = 'WSW'
+    } else if(windBearing >= 270 && windBearing < 292.5) {
+        cardinalDirection = 'W'
+    } else if(windBearing >= 292.5 && windBearing < 315) {
+        cardinalDirection = 'WNW'
+    } else if(windBearing >= 315 && windBearing < 337.5) {
+        cardinalDirection = 'NW'
+    } else if(windBearing >= 337.5 && windBearing < 360) {
+        cardinalDirection = 'NNW'
+    } else if(windBearing === undefined) {
+        cardinalDirection = ''
+    }
+    return windBearing
+
 }

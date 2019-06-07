@@ -24,6 +24,7 @@ const forecast = (latitude, longitude, callback) => {
                     humidity: body.currently.humidity,
                     pressure: body.currently.pressure,
                     windSpeed: body.currently.windSpeed,
+                    windBearing: body.currently.windBearing,
                     uvIndex: body.currently.uvIndex,
                     ozone: body.currently.ozone,
                     dailySummary: body.daily.summary,

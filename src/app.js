@@ -54,7 +54,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
 
-        forecast(latitude, longitude, (error, {time, timezone, currentSummary, temperature, apparentTemperature, icon, precipProbability, precipType, humidity, pressure, windSpeed, uvIndex, ozone, dailySummary, low, high} ) => {
+        forecast(latitude, longitude, (error, {time, timezone, currentSummary, temperature, apparentTemperature, icon, precipProbability, precipType, humidity, pressure, windSpeed, windBearing, uvIndex, ozone, dailySummary, low, high} ) => {
             if(error) {
              
                 return res.send({ error })
@@ -73,6 +73,7 @@ app.get('/weather', (req, res) => {
                 humidity: humidity,
                 pressure: pressure,
                 windSpeed: windSpeed,
+                windBearing: windBearing,
                 uvIndex: uvIndex,
                 ozone: ozone,
                 dailySummary: dailySummary,
