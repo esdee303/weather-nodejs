@@ -29,7 +29,7 @@ weatherForm.addEventListener('submit', (e) => {
             if(data.error) {
                 current.textContent = data.error
             } else {
-                
+                console.log(data.low)
                 // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
                 current.innerHTML =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
@@ -40,8 +40,8 @@ weatherForm.addEventListener('submit', (e) => {
 
                 // feels.textContent = 'Feels like:&nbsp;' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + data.high + '°' ,
                 
-                icon.setAttribute("width", "84")
-                icon.setAttribute("height", "84")
+                //icon.setAttribute("width", "84")
+                //icon.setAttribute("height", "84")
                 icon.src = setIcon(data.icon, data.time, data.timezone)
                 icon.style.visibility = 'visible'
                 //precipPobability.textContent = data.precipPobability,
