@@ -1,28 +1,12 @@
-// client side javascript
-
-/*fetch('http://localhost:3000/weather?address=heusden-zolder').then((response) => {
-    response.json().then((data) => {
-        if(data.error) {
-        console.log(data.error)
-       } else {
-        console.log(data.location)
-        console.log(data.forecast)
-        console.log(data.address)
-       }
-       
-    })
-})*/
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
-const time = document.querySelector('#time')
+// const time = document.querySelector('#time')
 const place = document.querySelector('#place')
-const summary = document.querySelector('#summary')
-const temperature = document.querySelector('#temperature')
-const apparentTemperature = document.querySelector('#apparentTemperature')
+const current = document.querySelector('#current')
+const temperatures = document.querySelector('#apparentTemperature')
 const icon = document.querySelector('#icon')
-const precipPobability = document.querySelector('#precipPobability')
-const precipType = document.querySelector('#precipType')
+// const precipPobability = document.querySelector('#precipPobability')
+// const precipType = document.querySelector('#precipType')
 const humidity = document.querySelector('#humidity')
 const pressure = document.querySelector('#pressure')
 const windSpeed = document.querySelector('#windSpeed')
@@ -39,19 +23,18 @@ weatherForm.addEventListener('submit', (e) => {
             if(data.error) {
                 place.textContent = data.error
             } else {
-                place.textContent = data.location,
-                summary.textContent =  data.summary,
-                time.textContent = getTimeOfZone(data.time, data.timezone),
-                temperature.textContent = data.temperature,
-                apparentTemperature.textContent = data.apparentTemperature,
+                place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
+                current.textContent =  data.temperature + '°  ' + data.summary,
+                // time.textContent = ,
+                temperatures.textContent = 'Feels like: ' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + '°' ,
                 icon.src = setIcon(data.icon, data.time, data.timezone),
-                precipPobability.textContent = data.precipPobability,
-                precipType.textContent =  data.precipType,
-                humidity.textContent =  data.humidity,
-                pressure.textContent =  data.pressure,
-                windSpeed.textContent =  data.windSpeed,
-                uvIndex.textContent = data.uvIndex,
-                ozone.textContent = data.ozone
+                //precipPobability.textContent = data.precipPobability,
+                // precipType.textContent =  data.precipType,
+                humidity.textContent =  'Humidity: ' + data.humidity + '%',
+                pressure.textContent =  'Pressure: ' + data.pressure + ' hPa',
+                windSpeed.textContent =  'Wind: ' + data.windSpeed + ' kph',
+                uvIndex.textContent = 'UV Index: ' + data.uvIndex,
+                ozone.textContent = 'Ozone: ' + data.ozone
            }
         })
     })

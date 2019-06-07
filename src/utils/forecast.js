@@ -15,7 +15,7 @@ const forecast = (latitude, longitude, callback) => {
                 callback(undefined,{
                     time: body.currently.time,
                     timezone: body.timezone,
-                    summary: body.currently.summary,
+                    currentSummary: body.currently.summary,
                     temperature: body.currently.temperature,
                     apparentTemperature: body.currently.apparentTemperature,
                     icon: body.currently.icon,
@@ -25,7 +25,10 @@ const forecast = (latitude, longitude, callback) => {
                     pressure: body.currently.pressure,
                     windSpeed: body.currently.windSpeed,
                     uvIndex: body.currently.uvIndex,
-                    ozone: body.currently.ozone
+                    ozone: body.currently.ozone,
+                    dailySummary: body.daily.summary,
+                    low: body.daily.data[0].temperatureLow,
+                    high: body.daily.data[0].temperatureHigh,
                 })  
             }
         })
