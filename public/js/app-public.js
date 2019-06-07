@@ -35,6 +35,8 @@ weatherForm.addEventListener('submit', (e) => {
                 high.innerHTML = '<span class="high-low-label">High:&nbsp;</span>' + data.high + '&deg;',
 
                 // feels.textContent = 'Feels like:&nbsp;' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + data.high + '°' ,
+                icon.setAttribute("width", "84")
+                icon.setAttribute("height", "84")
                 icon.src = setIcon(data.icon, data.time, data.timezone)
                 //precipPobability.textContent = data.precipPobability,
                 // precipType.textContent =  data.precipType,
