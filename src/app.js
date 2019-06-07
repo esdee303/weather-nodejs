@@ -79,7 +79,7 @@ app.get('/weather', (req, res) => {
                 low: low,
                 high: high
             })
-            console.log(summary)
+            
 
         /*    res.render('index', {
              //   location: transformToUpperCase(req.query.address.charAt(0).toUpperCase(), ['-']),
