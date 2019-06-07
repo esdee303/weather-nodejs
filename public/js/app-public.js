@@ -87,6 +87,8 @@ function setIcon(dataIcon, epochTime, timezone) {
         hour12: false,
         hour: 'numeric',
     }
+    console.log(new Intl.DateTimeFormat([], options))
+    
     hour = new Intl.DateTimeFormat([], options)
     console.log(hour)
     if(hour > 18 || hour < 6) {
