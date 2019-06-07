@@ -1,7 +1,7 @@
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 // const time = document.querySelector('#time')
-const place = document.querySelector('#place')
+// const place = document.querySelector('#place')
 const current = document.querySelector('#current')
 const dailySummary =  document.querySelector('#dailySummary')
 const feels = document.querySelector('#feels')
@@ -10,23 +10,23 @@ const high = document.querySelector('#high')
 const icon = document.querySelector('#icon')
 // const precipPobability = document.querySelector('#precipPobability')
 // const precipType = document.querySelector('#precipType')
-const humidity = document.querySelector('#humidity')
-const pressure = document.querySelector('#pressure')
-const windSpeed = document.querySelector('#windSpeed')
-const uvIndex = document.querySelector('#uvIndex')
-const ozone = document.querySelector('#ozone')
+// const humidity = document.querySelector('#humidity')
+// const pressure = document.querySelector('#pressure')
+// const windSpeed = document.querySelector('#windSpeed')
+// const uvIndex = document.querySelector('#uvIndex')
+// const ozone = document.querySelector('#ozone')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const location = search.value
-    console.log(location)
-    place.textContent = 'Loading...'
+   // const location = search.value
+    // console.log(location)
+    //place.textContent = 'Loading...'
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
-                place.textContent = data.error
+                current.textContent = data.error
             } else {
-                place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
+                // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
                 current.textContent =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
                 // time.textContent = ,
@@ -35,14 +35,14 @@ weatherForm.addEventListener('submit', (e) => {
                 high.innerHTML = '<span class="high-low-label">High:&nbsp;</span>' + data.high + '&deg;',
 
                 // feels.textContent = 'Feels like:&nbsp;' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + data.high + '°' ,
-                icon.src = setIcon(data.icon, data.time, data.timezone),
+                icon.src = setIcon(data.icon, data.time, data.timezone)
                 //precipPobability.textContent = data.precipPobability,
                 // precipType.textContent =  data.precipType,
-                humidity.textContent =  'Humidity: ' + data.humidity + '%',
-                pressure.textContent =  'Pressure: ' + data.pressure + ' hPa',
-                windSpeed.textContent =  'Wind: ' + data.windSpeed + ' kph',
-                uvIndex.textContent = 'UV Index: ' + data.uvIndex,
-                ozone.textContent = 'Ozone: ' + data.ozone
+                //humidity.textContent =  'Humidity: ' + data.humidity + '%',
+                //pressure.textContent =  'Pressure: ' + data.pressure + ' hPa',
+                //windSpeed.textContent =  'Wind: ' + data.windSpeed + ' kph',
+                //uvIndex.textContent = 'UV Index: ' + data.uvIndex,
+                //ozone.textContent = 'Ozone: ' + data.ozone
            }
         })
     })
