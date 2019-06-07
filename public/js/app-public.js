@@ -8,6 +8,8 @@ const feels = document.querySelector('#feels')
 const low = document.querySelector('#low')
 const high = document.querySelector('#high')
 const icon = document.querySelector('#icon')
+icon.style.visibility = 'hidden'
+
 // const precipPobability = document.querySelector('#precipPobability')
 // const precipType = document.querySelector('#precipType')
 // const humidity = document.querySelector('#humidity')
@@ -21,11 +23,13 @@ weatherForm.addEventListener('submit', (e) => {
    // const location = search.value
     // console.log(location)
     //place.textContent = 'Loading...'
+   
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
                 current.textContent = data.error
             } else {
+                
                 // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
                 current.textContent =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
@@ -35,9 +39,11 @@ weatherForm.addEventListener('submit', (e) => {
                 high.innerHTML = '<span class="high-low-label">High:&nbsp;</span>' + data.high + '&deg;',
 
                 // feels.textContent = 'Feels like:&nbsp;' + data.apparentTemperature + '°  Low: ' + data.low + '°  High: ' + data.high + '°' ,
+                
                 icon.setAttribute("width", "84")
                 icon.setAttribute("height", "84")
                 icon.src = setIcon(data.icon, data.time, data.timezone)
+                icon.style.visibility = 'visible'
                 //precipPobability.textContent = data.precipPobability,
                 // precipType.textContent =  data.precipType,
                 //humidity.textContent =  'Humidity: ' + data.humidity + '%',
