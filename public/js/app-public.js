@@ -87,10 +87,13 @@ function setIcon(dataIcon, epochTime, timezone) {
         hour12: false,
         hour: 'numeric',
     }
-    console.log(new Intl.DateTimeFormat([], options))
+   
     
-    hour = new Intl.DateTimeFormat([], options)
+    formatter = new Intl.DateTimeFormat([], options)
+    console.log(formatter.format(d))
+    var hour = formatter.format(d)
     console.log(hour)
+
     if(hour > 18 || hour < 6) {
         iconImage = dataIcon + '-night.img'
     } else {
