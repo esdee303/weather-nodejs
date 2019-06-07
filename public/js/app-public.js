@@ -34,7 +34,7 @@ weatherForm.addEventListener('submit', (e) => {
                 current.innerHTML =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
                 // time.textContent = ,
-                feels.innerHTML = '<span class="high-low-label">Feels Like:&nbsp;</span>' + data.apperentTemperature + '&deg;',
+                feels.innerHTML = '<span class="high-low-label">Feels Like:&nbsp;</span>' + data.apparentTemperature + '&deg;',
                 low.innerHTML = '<span class="high-low-label">Low:&nbsp;</span>' + data.low + '&deg;',
                 high.innerHTML = '<span class="high-low-label">High:&nbsp;</span>' + data.high + '&deg;',
 
