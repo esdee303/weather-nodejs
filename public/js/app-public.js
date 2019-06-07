@@ -87,22 +87,39 @@ function setIcon(dataIcon, epochTime, timezone) {
         hour12: false,
         hour: 'numeric',
     }
-   
-    
+       
     formatter = new Intl.DateTimeFormat([], options)
     
     var hour = formatter.format(d)
     console.log(hour)
     
     var iconImage = ''
-    
-    if(hour > 18 || hour < 6) {
-        iconImage = dataIcon + '-night.img'
-    } else {
-        iconImage = dataIcon + '-day.img'
+   
+    switch(dataIcon) {
+        case 'clear-day':
+        case 'clear-night':
+        case 'partly-cloudy-day':
+        case 'partly-cloudy-night':
+            iconImage = 'img/weather-icons/' + dataIcon + '.png'
+            break
+        case 'rain':
+        case 'snow':
+        case 'sleet':
+        case 'wind':
+        case 'fog':
+        case 'cloudy':
+        case 'hail':
+        case 'thunderstorm':
+        case 'tornado':
+            if(hour > 18 || hour < 6) {
+                iconImage = 'img/weather-icons/' + dataIcon + '-night.png'
+            } else {
+                iconImage = 'img/weather-icons/' + dataIcon + '-day.png'
+            }
+            break
     }
+
     console.log(iconImage)
+
     return iconImage
-
-
 }
