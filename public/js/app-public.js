@@ -41,10 +41,10 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 place.textContent = data.location,
                 summary.textContent =  data.summary,
-                time.textContent = getTime(data.time, data.timezone),
+                time.textContent = getTimeOfZone(data.time, data.timezone),
                 temperature.textContent = data.temperature,
                 apparentTemperature.textContent = data.apparentTemperature,
-                icon.textContent.textContent = data.icon,
+                //icon.src = setIcon(data.icon, data.time, data.timezone),
                 precipPobability.textContent = data.precipPobability,
                 precipType.textContent =  data.precipType,
                 humidity.textContent =  data.humidity,
@@ -53,29 +53,49 @@ weatherForm.addEventListener('submit', (e) => {
                 uvIndex.textContent = data.uvIndex,
                 ozone.textContent = data.ozone
            }
-           
         })
     })
 })
 
-function getTime(epochTime, timezone) {
+
+
+function getTimeOfZone(epochTime, timezone) {
     var d = new Date(0)
     d.setUTCSeconds(epochTime)
 
-   var options = {
+    var options = {
         timeZone: timezone,
+        hour12: false,
         year: 'numeric', month: 'numeric', day: 'numeric',
         hour: 'numeric', minute: 'numeric', second: 'numeric',
     }
 
     formatter = new Intl.DateTimeFormat([], options)
-    return formatter.format(d)
     
-   /* var d = new Date();
-    var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
-    var nd = new Date(utc + (3600000 * offset))
+    return formatter.format(d)
+}
 
+
+
+function setIcon(dataIcon, epochTime, timezone) {
+    console.log(dataIcon)
+    var d = new Date(0)
     d.setUTCSeconds(epochTime)
-    console.log(d)
-    return d*/
+    const iconImage = ''
+    var options = {
+        timeZone: timezone,
+        hour12: false,
+        hour: 'numeric',
+    }
+    hour = new Intl.DateTimeFormat([], options)
+    console.log(hour)
+    if(hour > 18 || hour < 6) {
+        iconImage = dataIcon + '-night.img'
+    } else {
+        iconImage = dataIcon + '-day.img'
+    }
+    console.log(iconImage)
+    return iconImage
+
+
 }
