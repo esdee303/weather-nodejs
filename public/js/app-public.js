@@ -31,7 +31,7 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 
                 // place.textContent = data.location + ' - ' + getTimeOfZone(data.time, data.timezone),
-                current.textContent =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
+                current.innerHTML =  data.temperature + '&deg;&nbsp;' + data.currentSummary + '.',
                 dailySummary.textContent = data.dailySummary,
                 // time.textContent = ,
                 feels.innerHTML = '<span class="high-low-label">Feels Like:&nbsp;</span>' + data.apperentTemperature + '&deg;',
