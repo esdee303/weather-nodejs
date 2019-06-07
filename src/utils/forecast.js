@@ -14,6 +14,7 @@ const forecast = (latitude, longitude, callback) => {
             } else {
                 callback(undefined,{
                     time: body.currently.time,
+                    timezone: body.timezone,
                     summary: body.currently.summary,
                     temperature: body.currently.temperature,
                     apparentTemperature: body.currently.apparentTemperature,

@@ -54,7 +54,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
 
-        forecast(latitude, longitude, (error, {time, summary, temperature, apparentTemperature, icon, precipProbability, precipType, humidity, pressure, windSpeed, uvIndex, ozone} ) => {
+        forecast(latitude, longitude, (error, {time, timezone, summary, temperature, apparentTemperature, icon, precipProbability, precipType, humidity, pressure, windSpeed, uvIndex, ozone} ) => {
             if(error) {
              
                 return res.send({ error })
@@ -63,6 +63,7 @@ app.get('/weather', (req, res) => {
             res.json({
                 location: transformToUpperCase((req.query.address.charAt(0).toUpperCase() + req.query.address.slice(1)), ['-']),
                 time: time,
+                timezone: timezone,
                 summary: summary,
                 temperature: temperature,
                 apparentTemperature: apparentTemperature,

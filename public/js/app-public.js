@@ -41,7 +41,7 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 place.textContent = data.location,
                 summary.textContent =  data.summary,
-                time.textContent = getTime(data.time),
+                time.textContent = getTime(data.time, data.timezone),
                 temperature.textContent = data.temperature,
                 apparentTemperature.textContent = data.apparentTemperature,
                 icon.textContent.textContent = data.icon,
@@ -58,9 +58,24 @@ weatherForm.addEventListener('submit', (e) => {
     })
 })
 
-function getTime(epochTime) {
-    var d = new Date(0);
+function getTime(epochTime, timezone) {
+    var d = new Date(0)
+    d.setUTCSeconds(epochTime)
+
+    var options = {
+        timeZone: timezone,
+        year: d.getFullYear(), month: d.getMonth(), day: d.getDay(),
+        hour: d.getHours(), minute: d.getMinutes(), second: d.getSeconds(),
+    }
+
+    formatter = new Intl.DateTimeFormat([], options)
+    return formatter.format(new Date())
+    
+   /* var d = new Date();
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000)
+    var nd = new Date(utc + (3600000 * offset))
+
     d.setUTCSeconds(epochTime)
     console.log(d)
-    return d
+    return d*/
 }
