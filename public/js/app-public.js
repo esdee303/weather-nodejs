@@ -28,20 +28,16 @@ const windSpeed = document.querySelector('#windSpeed')
 const uvIndex = document.querySelector('#uvIndex')
 const ozone = document.querySelector('#ozone')
 
-
-
-
-
-
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value
-    forecast.textContent = 'Loading...'
-    place.textContent = ''
+    console.log(location)
+    place.textContent = 'Loading...'
+    temperature.textContent = ''
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
-                forecast.textContent = data.error
+                place.textContent = data.error
             } else {
                 place.textContent = data.location,
                 summary.textContent =  data.summary,
