@@ -18,6 +18,8 @@ icon.style.visibility = 'hidden'
 // const uvIndex = document.querySelector('#uvIndex')
 // const ozone = document.querySelector('#ozone')
 
+
+
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value
